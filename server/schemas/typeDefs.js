@@ -14,7 +14,7 @@ const typeDefs = gql`
 
   type Creation {
     _id: ID
-    url: String
+    creationUrl: String
     createdAt: String
     username: String
   }

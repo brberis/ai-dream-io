@@ -171,10 +171,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addCreation: async (parent, url, context) => {
+    addCreation: async (parent, creationUrl, context) => {
+      console.log('crestion');
       if (context.user) {
+        console.log(context.user);
+
         const creation = await Creation.create({
-          creationUrl: url,
+          creationUrl: creationUrl,
           username: context.user.username,
         });
 
@@ -189,7 +192,6 @@ const resolvers = {
     },
     addCredits: async (parent, { sessionId }) => {
       if (sessionId) {
-        console.log(sessionId);
         const order = await Order.findOne({ sessionId: sessionId })
           .populate("products")
           .populate("user");

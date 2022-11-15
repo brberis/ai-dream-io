@@ -3,12 +3,10 @@ const dateFormat = require('../utils/dateFormat');
 
 const creationSchema = new Schema(
   {
-    
     creationUrl: {
       type: String,
       minlength: 1,
       maxlength: 280,
-      unique: true
     },
     createdAt: {
       type: Date,
@@ -18,11 +16,6 @@ const creationSchema = new Schema(
     username: {
       type: String,
       required: true
-    }
-  },
-  {
-    toJSON: {
-      getters: true
     }
   }
 );
