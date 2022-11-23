@@ -25,7 +25,7 @@ const publicPages = [{name: 'How it Works', link:'/how-it-works'},
                {name: 'Pricing', link:'/pricing'}]
 
 const privatePages = [{name: 'My Collection', link:'/collection'}, 
-               {name: 'Create', link:'/creation'}]
+               {name: 'Create', link:'/creations'}]
 
 
 function ResponsiveAppBar() {
