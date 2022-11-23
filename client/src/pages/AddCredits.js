@@ -22,6 +22,8 @@ import Toolbar from '@mui/material/Toolbar';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_CHECKOUT } from '../utils/queries';
+import Alert from '@mui/material/Alert';
+import Container from '@mui/material/Container';
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -95,7 +97,8 @@ const AddCredits = () => {
         variables: {
           id: orderId,
           sessionId: data.checkout.session,
-          status: 'in progress'
+          // status: 'in progress'
+          status: 'in demo'
         }
       });
       stripePromise.then((res) => {
@@ -132,7 +135,7 @@ const AddCredits = () => {
         position="absolute"
         color="default"
         elevation={0}
-        sx={{
+        sx={{ 
           position: 'relative',
           mb: 4,
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
@@ -144,9 +147,13 @@ const AddCredits = () => {
         </Typography>
       </Toolbar>
     </AppBar>
+    <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
+      <Alert severity="warning">
+        Credits will not be added in test mode.
+      </Alert>
+    </Container>
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2} className="grid-cntr">
-        
           {productsData?.products.map((product) => (
             <Grid key= {product._id} container justifyContent="space-around" xs={5} sx={{m: 3}}>
               <Card className={classes.root}>
