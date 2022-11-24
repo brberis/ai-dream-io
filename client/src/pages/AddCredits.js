@@ -58,11 +58,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const customTheme = createTheme({
-  palette: {
-    primary: {
-      main: deepPurple[500],
-    },
-  },
+
 });
 
 const StyledAvatar = styled(Avatar)`
@@ -185,10 +181,6 @@ const AddCredits = () => {
       </Grid>
     </Box>
   </>
-    // <div className="cart">
-    //           <button onClick={()=>submitCheckout(item._id)}>Checkout</button>
-    //           <span>(log in to check out)</span>
-    // </div>
   );
 };
 
