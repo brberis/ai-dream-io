@@ -39,6 +39,19 @@ background: linear-gradient(90deg, rgba(120,70,204,1) 0%, rgba(9,9,121,1) 38%, r
   padding-bottom: 60px;
 }
 
+.credits-card {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, 
+  rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 30px 40px;
+  text-align: center;
+}
+
+.credits-btn {
+
+  text-align: center;
+}
+
+
 /*Styling for the Pricing Page*/
 
 .card-container {

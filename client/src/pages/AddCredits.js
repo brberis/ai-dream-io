@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { makeStyles } from '@material-ui/core/styles'
+import {
+    Grid,
+    CardContent,
+    Typography,
+    CardHeader
+} from '@material-ui/core/'
 import Auth from '../utils/auth';
 import { Navigate } from 'react-router-dom';
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Unstable_Grid2";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography";
 import CardActions from "@material-ui/core/CardActions";
-import Button from "@material-ui/core/Button";
-import { Divider, makeStyles } from "@material-ui/core";
-import CardHeader from "@material-ui/core/CardHeader";
-import { deepPurple } from "@mui/material/colors";
-import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import { Divider } from "@material-ui/core";
 import { QUERY_PRODUCTS } from "../utils/queries.js";
 import { ADD_ORDER, UPDATE_ORDER } from "../utils/mutations.js";
 import { useQuery } from "@apollo/react-hooks";
@@ -25,55 +22,23 @@ import { QUERY_CHECKOUT } from '../utils/queries';
 import Alert from '@mui/material/Alert';
 import Container from '@mui/material/Container';
 
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    borderRadius: 12,
-    minWidth: 215,
-    textAlign: "center",
-    padding: "10px",
-  },
-  header: {
-    textAlign: "center",
-    spacing: 10,
-  },
-  list: {
-    padding: "20px",
-  },
-  button: {
-    margin: theme.spacing(1),
+    flexGrow: 1,
+    padding: theme.spacing(2),
+    marginBottom: "50px"
   },
   action: {
-    display: "flex",
-    justifyContent: "space-around",
+    justifyContent: "center",
+    marginTop: "20px",
+    paddingBottom: "20px"
   },
-}));
-
-const customTheme = createTheme({
-
-});
-
-const StyledAvatar = styled(Avatar)`
-  ${({ theme }) => `
-  cursor: pointer;
-  background-color: ${theme.palette.primary.main};
-  transition: ${theme.transitions.create(["background-color", "transform"], {
-    duration: theme.transitions.duration.standard,
-  })};
-  &:hover {
-    background-color: ${theme.palette.secondary.main};
-    transform: scale(1.3);
+  button: {
+    borderRadius: "50%",
+    width: "30px",
+    height: "60px"
   }
-  `}
-`;
+}))
 
 const stripePromise = loadStripe('pk_test_53EV49EHulEpkScQouWloySW00atAj6KCx');
 
@@ -148,39 +113,43 @@ const AddCredits = () => {
         Credits will not be added in test mode.
       </Alert>
     </Container>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={2} className="grid-cntr">
+
+    <div className={classes.root}>
+      <Grid
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+      >
           {productsData?.products.map((product) => (
-            <Grid key= {product._id} container justifyContent="space-around" xs={5} sx={{m: 3}}>
-              <Card className={classes.root}>
-              <CardHeader title={product.name} className={classes.header} />
-              <Divider variant="middle" />
-              <CardContent>
-                <Typography variant="h4" align="center">
-                  $ {product.price}
-                </Typography>
-              </CardContent>
-              <Divider variant="middle" />
-              <CardActions className={classes.action}>
-                <ThemeProvider theme={customTheme}>
-                  <StyledAvatar>
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      className={classes.button}
-                      onClick={()=>submitCheckout(product._id)}
-                    >
-                      Buy
-                    </Button>
-                  </StyledAvatar>
-                </ThemeProvider>
-              </CardActions>
-            </Card>
-          </Grid>
-          ))}
-      </Grid>
-    </Box>
-  </>
+              <Grid item xs={12} sm={6} md={3} key={product._id}>
+                  <div className="credits-card">
+                    <CardHeader
+                        title={product.name}
+                    />
+                    <CardContent>
+                        <Typography variant="h4" gutterBottom>
+                         ${product.price}
+                        </Typography>
+                    </CardContent>
+                    <Divider variant="middle" />
+                    <CardActions className={classes.action}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                        onClick={()=>submitCheckout(product._id)}
+                      >
+                        Buy
+                      </Button>
+                    </CardActions>
+                  </div>
+                </Grid>
+                ))}
+            </Grid>
+        </div>
+    </>
   );
 };
 
