@@ -100,7 +100,7 @@ export default function Review() {
             <MenuItem value={1}>1 (I'm gonna get lucky) </MenuItem>
             <MenuItem value={3}>3 (Standard) </MenuItem>
             <MenuItem value={6}>6 (Recomended)</MenuItem>
-            <MenuItem value={12}>12 (Safer option)</MenuItem>
+            <MenuItem value={10}>10 (Safer option)</MenuItem>
           </Select>
         </ListItem>
 
