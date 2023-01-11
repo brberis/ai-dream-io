@@ -54,13 +54,13 @@ This app is deployed in Heroku.
 
 To install this AI-powered creative design platform on your machine, please follow these steps:
 
-1- Clone the repository by running the command git clone: 
+1. Clone the repository by running the command git clone: 
 [https://github.com/brberis/ai-dream-io.git](https://github.com/brberis/ai-dream-io.git)
-2- Navigate to the root of the project directory using the command `cd repo-name`.
-3- Run `npm install` to install all the necessary dependencies.
-4- Set up the required environment variables by creating a .env file in the root of the project directory and adding the necessary environment variable key-value pairs.
-5- Start the development server by running the command `npm run dev`
-7- In the browser navigate to `http://localhost:3000` to access the app
+2. Navigate to the root of the project directory using the command `cd repo-name`.
+3. Run `npm install` to install all the necessary dependencies.
+4. Set up the required environment variables by creating a .env file in the root of the project directory and adding the necessary environment variable key-value pairs.
+5. Start the development server by running the command `npm run dev`
+7. In the browser navigate to `http://localhost:3000` to access the app
 
 ### Note:
 - Make sure that you have the latest version of Node.js and npm installed on your machine
