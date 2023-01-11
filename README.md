@@ -17,7 +17,7 @@ Creating marketing materials can be a process and can take anywhere from 4 to 6 
 ## Table of Contents
 
 - [User Story](#user-story)
-- [Features](#features)
+- [Features and Technology](#features-and-technology)
 - [Deployment](#deployment)
 - [How to Install](#how-to-install)
 - [Credits](#credits)
@@ -27,7 +27,7 @@ Creating marketing materials can be a process and can take anywhere from 4 to 6 
 
 As a user, I want to be able to use an AI-powered creative design platform that allows me to easily create original graphics, logos, product concept images, art, and realistic images. This will help me to create marketing materials more efficiently, as the process of creating these materials can take a significant amount of time.
 
-## Features
+## Features and Technology
 
 - ES6 JavaScript
 - React 17^
@@ -63,9 +63,9 @@ To install this AI-powered creative design platform on your machine, please foll
 7. In the browser navigate to `http://localhost:3000` to access the app
 
 ### Note:
+
 - Make sure that you have the latest version of Node.js and npm installed on your machine
 - Make sure you have MongoDB installed and running before start the development server. 
-- After you finish with the installation and setup, don't forget to remove .env file from the repo before committing.
 
 ## Questions
 
